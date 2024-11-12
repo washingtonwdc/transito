@@ -773,6 +773,7 @@ Considerações:
                     clearInterval(interval);
                     countdownTime = 180; // Resetar a contagem <!-- cspell:ignore Resetar -->
                     updateCameras();
+                    startCountdown(); // Reiniciar o contador após a atualização
                 }
 
                 const minutes = Math.floor(countdownTime / 60);
