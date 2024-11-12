@@ -121,11 +121,10 @@ Este projeto exibe um painel de câmeras de trânsito para Recife, Brasil. Inclu
             margin-top: 20px;
         }
         .modal {
-            display: none;
+            display: flex;
             position: fixed;
-            z-index: 1000;
-            left: 0;
             top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
             background-color: rgba(0, 0, 0, 0.8);
@@ -157,8 +156,8 @@ Este projeto exibe um painel de câmeras de trânsito para Recife, Brasil. Inclu
             text-align: center;
             padding: 10px;
             position: fixed;
-            width: 100%;
             bottom: 0;
+            width: 100%;
         }
     </style>
     <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY"></script>
@@ -795,5 +794,3 @@ Este projeto exibe um painel de câmeras de trânsito para Recife, Brasil. Inclu
     </script>
 </body>
 </html>
-
-
