@@ -33,9 +33,6 @@
             width: 100%;
             max-width: 1200px;
         }
-        h1 {
-            margin: 0;
-        }
         .grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -60,58 +57,13 @@
             font-weight: bold;
         }
         .button {
+            display: block;
             background-color: #007BFF;
             color: white;
-            padding: 10px 15px;
-            text-decoration: none;
-            border-radius: 5px;
-            margin: 10px 0;
-            display: inline-block;
-            transition: background-color 0.3s;
-        }
-        .button:hover {
-            background-color: #0056b3;
-        }
-        .countdown {
             text-align: center;
-            font-weight: bold;
-            padding: 15px;
-            color: #FF4500;
-        }
-        #map {
-            height: 100px;
-            margin-top: 20px;
-        }
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            justify-content: center;
-            align-items: center;
-        }
-        .modal img {
-            max-width: 90%;
-            max-height: 90%;
-        }
-        .close {
-            position: absolute;
-            top: 20px;
-            right: 30px;
-            color: white;
-            font-size: 30px;
-            cursor: pointer;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        .modal.show {
-            animation: fadeIn 0.5s;
+            padding: 10px;
+            text-decoration: none;
+            border-radius: 0 0 8px 8px;
         }
         footer {
             background-color: #007BFF;
@@ -123,6 +75,16 @@
             bottom: 0;
             left: 0;
             right: 0;
+        }
+        .camera-info {
+            text-align: center;
+            margin-top: 40px;
+        }
+        .camera-info img {
+            width: 100px;
+            height: auto;
+            display: block;
+            margin: 0 auto 10px;
         }
     </style>
     <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY"></script>
