@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> 8b700d927ddd24d09643e5561de2fa5334c9b1f8
 <!--
 
 Este arquivo HTML exibe um painel de câmeras de trânsito para Recife, Brasil. Inclui um layout em grade de feeds de câmeras de trânsito, um mapa do Google e um modal para visualização detalhada das imagens. A página também possui um temporizador de contagem regressiva que atualiza os feeds das câmeras a cada 3 minutos.
