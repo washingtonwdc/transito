@@ -1,174 +1,162 @@
-# Câmeras de Trânsito - Recife
+<!--
 
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        background-color: #f4f4f4;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-    }
-    header {
-        background-color: #007BFF;
-        color: white;
-        padding: 20px;
-        text-align: center;
-        position: fixed;
-        width: 100%;
-        top: 0;
-        z-index: 1000;
-    }
-    main {
-        padding: 80px 20px 20px 20px;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-    }
-    h1 {
-        margin: 0;
-    }
-    .grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); <!-- cspell:ignore minmax -->
-        gap: 20px;
-        margin-top: 20px;
-    }
-    .card {
-        background: white;
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); <!-- cspell:ignore rgba -->
-        overflow: hidden;
-        text-align: center;
-        cursor: pointer;
-        transition: transform 0.3s, box-shadow 0.3s;
-    }
-    .card:hover {
-        transform: scale(1.05);
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); <!-- cspell:ignore rgba -->
-    }
-    img {
-        width: 100%;
-        height: auto;
-        display: block;
-    }
-    .info {
-        padding: 15px;
-        color: #555;
-        font-weight: bold;
-    }
-    .button {
-        background-color: #007BFF;
-        color: white;
-        padding: 10px 15px;
-        text-decoration: none;
-        border-radius: 5px;
-        margin: 10px 0;
-        display: inline-block;
-        transition: background-color 0.3s;
-    }
-    .button:hover {
-        background-color: #0056b3;
-    }
-    .countdown {
-        text-align: center;
-        font-weight: bold;
-        padding: 15px;
-        color: #FF4500;
-    }
-    #map {
-        height: 100px; 
-        margin-top: 20px;
-    }
-    .modal {
-        display: none;
-        position: fixed;
-        z-index: 1000;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.8); <!-- cspell:ignore rgba -->
-        justify-content: center;
-        align-items: center;
-    }
-    .modal img {
-        max-width: 90%;
-        max-height: 90%;
-    }
-    .close {
-        position: absolute;
-        top: 20px;
-        right: 30px;
-        color: white;
-        font-size: 30px;
-        cursor: pointer;
-    }
-    @keyframes fadeIn { <!-- cspell:ignore keyframes -->
-        from { opacity: 0; }
-        to { opacity: 1; }
-    }
-    .modal.show {
-        animation: fadeIn 0.5s;
-    }
-    footer {
-        background-color: #007BFF;
-        color: white;
-        text-align: center;
-        padding: 10px;
-        position: fixed;
-        width: 100%;
-        bottom: 0;
-    }
-    .camera-grid {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 16px;
-        max-width: 1200px;
-        width: 100%;
-    }
+Este arquivo HTML exibe um painel de câmeras de trânsito para Recife, Brasil. Inclui um layout em grade de feeds de câmeras de trânsito, um mapa do Google e um modal para visualização detalhada das imagens. A página também possui um temporizador de contagem regressiva que atualiza os feeds das câmeras a cada 3 minutos.
 
-    .camera-feed {
-        background-color: #f0f0f0;
-        border: 1px solid #ccc;
-        border-radius: 8px;
-        overflow: hidden;
-    }
+Componentes Principais:
+- Estrutura HTML5 com design responsivo.
+- CSS para estilizar o layout, incluindo uma grade para feeds de câmeras, modal para visualização de imagens e temporizador de contagem regressiva.
+- JavaScript para atualizações dinâmicas de conteúdo, incluindo:
+    - Busca e exibição de feeds de câmeras.
+    - Abertura e fechamento do modal de imagem.
+    - Temporizador de contagem regressiva para atualização dos feeds das câmeras.
 
-    .camera-feed img {
-        width: 100%;
-        height: auto;
-        display: block;
-    }
-</style>
+Recursos Externos:
+- API do Google Maps para incorporar um mapa.
+- Windy.com para incorporar feeds de webcams.
 
-## Header
-<div style="background-color: #007BFF; color: white; padding: 20px; text-align: center; position: fixed; width: 100%; top: 0; z-index: 1000;">
-    <h1>Câmeras de Trânsito - Recife</h1>
-</div>
+Funções JavaScript:
+- updateCameras(): Atualiza os feeds das câmeras exibidos na grade.
+- openModal(imageSrc, altText): Abre o modal com a imagem selecionada.
+- closeModal(): Fecha o modal de imagem.
+- startCountdown(): Inicia o temporizador de contagem regressiva e atualiza os feeds das câmeras periodicamente.
 
-## Main
-<div style="padding: 80px 20px 20px 20px;">
-    <div class="camera-grid">
-        <div class="camera-feed">
-            <img src="camera1.jpg" alt="Camera 1">
-        </div>
-        <div class="camera-feed">
-            <img src="camera2.jpg" alt="Camera 2">
-        </div>
-        <div class="camera-feed">
-            <img src="camera3.jpg" alt="Camera 3">
-        </div>
-        <div class="camera-feed">
-            <img src="camera4.jpg" alt="Camera 4">
-        </div>
-        <!-- Adicione mais feeds de câmeras conforme necessário -->
-    </div>
-</div>
+Uso:
+- A página inicia automaticamente a contagem regressiva e atualiza os feeds das câmeras ao carregar.
+- Os usuários podem clicar nas imagens das câmeras para visualizá-las em um modal.
+- Os usuários podem visualizar as localizações das câmeras no Google Maps clicando no botão fornecido.
 
-<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY"></script>
+Nota:
+- Substitua 'YOUR_GOOGLE_MAPS_API_KEY' por uma chave de API válida do Google Maps.
+
+Considerações:
+- Este projeto foi desenvolvido por Washington Dias para ajudar na visualização das câmeras de trânsito da CTTU.
+- As imagens das câmeras nem sempre atualizam em tempo real.
+- Se você tiver sugestões ou melhorias para este projeto, sinta-se à vontade para contribuir.
+-->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Câmeras de Trânsito - Recife</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #007BFF;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        main {
+            padding: 80px 20px 20px 20px;
+        }
+        h1 {
+            margin: 0;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .info {
+            padding: 15px;
+            color: #555;
+            font-weight: bold;
+        }
+        .button {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 10px 0;
+            display: inline-block;
+            transition: background-color 0.3s;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+        .countdown {
+            text-align: center;
+            font-weight: bold;
+            padding: 15px;
+            color: #FF4500;
+        }
+        #map {
+            height: 100px; 
+            margin-top: 20px;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal img {
+            max-width: 90%;
+            max-height: 90%;
+        }
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 30px;
+            cursor: pointer;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .modal.show {
+            animation: fadeIn 0.5s;
+        }
+        footer {
+            background-color: #007BFF;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY"></script>
+</head>
 <body>
     <header>
         <h1>Câmeras de Trânsito - Recife</h1>
@@ -207,7 +195,7 @@
                             há 39 minutos
                         </span>
                         <div class="activate-embed">
-                            <span class="fasvg-12 fa-play"></span> <!-- cspell:ignore fasvg -->
+                            <span class="fasvg-12 fa-play"></span>
                         </div>
                         <span class="distance">
                             Distância: 1.6 km
@@ -220,7 +208,7 @@
         <div class="col-6 webcam-container">
             <div class="webcam-content" data-embed="https://webcams.windy.com/webcams/public/embed/player/1618847951/day?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ3ZWJjYW1faWQiOjE2MTg4NDc5NTEsInVzZXJfdHlwZSI6MSwiYXZhaWxhYmxlX3NpemVzIjoidGVhc2VyYmcsaWNvbix0aHVtYm5haWwscHJldmlldyxub3JtYWwsZnVsbCxwYW5vcmFtYSIsImlhdCI6MTcyOTkwNDU4MSwiZXhwIjoxNzI5OTkwOTgxfQ.jTPeZjlCKqPrTf4F6c37k5CNJHpSbI2y9kIh6ptcqu0&amp;autoPlay=1">
                 <a class="webcam-img" href="https://images-webcams.windy.com/public/51/1618847951/current/full/1618847951.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ3ZWJjYW1faWQiOjE2MTg4NDc5NTEsInVzZXJfdHlwZSI6MSwiYXZhaWxhYmxlX3NpemVzIjoidGVhc2VyYmcsaWNvbix0aHVtYm5haWwscHJldmlldyxub3JtYWwsZnVsbCxwYW5vcmFtYSIsImlhdCI6MTcyOTkwNDU4MSwiZXhwIjoxNzI5OTkwOTgxfQ.jTPeZjlCKqPrTf4F6c37k5CNJHpSbI2y9kIh6ptcqu0" title="Recife" sub-html="
-                    <div style='font-weight: bold; font-size: 1.5em; margin-bottom: 5px;'>Recife: Paissandu - Avenida Governador Agamenon Magalhães</div> <!-- cspell:ignore Paissandu -->
+                    <div style='font-weight: bold; font-size: 1.5em; margin-bottom: 5px;'>Recife: Paissandu - Avenida Governador Agamenon Magalhães</div>
                     <div class='webcam-extra-info' style='font-size: 1.2em;'>
                         há 1 hora | 
                         Distância: 2 km
@@ -228,8 +216,8 @@
                 " data-lg-id="c6868d3c-a9e6-4de9-80d0-6dda035eafea">
                 <iframe src="https://webcams.windy.com/webcams/public/embed/player/1618847951/day?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ3ZWJjYW1faWQiOjE2MTg4NDc5NTEsInVzZXJfdHlwZSI6MSwiYXZhaWxhYmxlX3NpemVzIjoidGVhc2VyYmcsaWNvbix0aHVtYm5haWwscHJldmlldyxub3JtYWwsZnVsbCxwYW5vcmFtYSIsImlhdCI6MTcyOTkwNDU4MSwiZXhwIjoxNzI5OTkwOTgxfQ.jTPeZjlCKqPrTf4F6c37k5CNJHpSbI2y9kIh6ptcqu0&amp;autoPlay=1" width="389" height="219"></iframe>
                 </a>
-                <div class="title webcam-city" title="Recife: Paissandu - Avenida Governador Agamenon Magalhães" data-coord="-8.06196 -34.89769"> <!-- cspell:ignore Paissandu -->
-                    Recife: Paissandu - Avenida Governador Agamenon Magalhães <!-- cspell:ignore Paissandu -->
+                <div class="title webcam-city" title="Recife: Paissandu - Avenida Governador Agamenon Magalhães" data-coord="-8.06196 -34.89769">
+                    Recife: Paissandu - Avenida Governador Agamenon Magalhães
                     <div class="webcam-extra-info">
                         <span class="last-update">
                             <div class="out-of-date"></div>
@@ -257,7 +245,7 @@
                 " data-lg-id="0b424c91-0367-410f-9f68-1ae9dafc61cd">
                 <iframe src="https://webcams.windy.com/webcams/public/embed/player/1618847806/day?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ3ZWJjYW1faWQiOjE2MTg4NDc4MDYsInVzZXJfdHlwZSI6MSwiYXZhaWxhYmxlX3NpemVzIjoidGVhc2VyYmcsaWNvbix0aHVtYm5haWwscHJldmlldyxub3JtYWwsZnVsbCxwYW5vcmFtYSIsImlhdCI6MTcyOTkwNDU4MSwiZXhwIjoxNzI5OTkwOTgxfQ.VmXvBPKhIGgTl1mSQ49dgDj2tuRx875LHB1IlPSiyBY&amp;autoPlay=1" width="389" height="219"></iframe>
                 </a>
-                <div class="title webcam-city" title="Recife: Paissandu - Avenida Governador Agamenon Magalhães" data-coord="-8.06289 -34.89739"> <!-- cspell:ignore Paissandu -->
+                <div class="title webcam-city" title="Recife: Paissandu - Avenida Governador Agamenon Magalhães" data-coord="-8.06289 -34.89739">
                     Recife: Paissandu - Avenida Governador Agamenon Magalhães
                     <div class="webcam-extra-info">
                         <span class="last-update">
@@ -379,7 +367,7 @@
         <div class="col-6 webcam-container">
             <div class="webcam-content" data-embed="https://webcams.windy.com/webcams/public/embed/player/1618253294/day?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ3ZWJjYW1faWQiOjE2MTgyNTMyOTQsInVzZXJfdHlwZSI6MSwiYXZhaWxhYmxlX3NpemVzIjoidGVhc2VyYmcsaWNvbix0aHVtYm5haWwscHJldmlldyxub3JtYWwsZnVsbCxwYW5vcmFtYSIsImlhdCI6MTcyOTkwNDU4MSwiZXhwIjoxNzI5OTkwOTgxfQ.yZy4BKy1bPtTkvi7in2WY-hbmucbbk8IRGE-PDKL8SU&amp;autoPlay=1">
                 <a class="webcam-img" href="https://images-webcams.windy.com/public/94/1618253294/current/full/1618253294.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ3ZWJjYW1faWQiOjE2MTgyNTMyOTQsInVzZXJfdHlwZSI6MSwiYXZhaWxhYmxlX3NpemVzIjoidGVhc2VyYmcsaWNvbix0aHVtYm5haWwscHJldmlldyxub3JtYWwsZnVsbCxwYW5vcmFtYSIsImlhdCI6MTcyOTkwNDU4MSwiZXhwIjoxNzI5OTkwOTgxfQ.yZy4BKy1bPtTkvi7in2WY-hbmucbbk8IRGE-PDKL8SU" title="Recife" sub-html="
-                    <div style='font-weight: bold; font-size: 1.5em; margin-bottom: 5px;'>Recife: Peace Community Center - COMPAZ- Alto Santa Terezinha</div> <!-- cspell:ignore COMPAZ -->
+                    <div style='font-weight: bold; font-size: 1.5em; margin-bottom: 5px;'>Recife: Peace Community Center - COMPAZ- Alto Santa Terezinha</div>
                     <div class='webcam-extra-info' style='font-size: 1.2em;'>
                         há 45 minutos | 
                         Distância: 4.7 km
@@ -387,8 +375,8 @@
                 " data-lg-id="cb6681cc-cd71-4a5b-b34b-fc192f769760">
                 <iframe src="https://webcams.windy.com/webcams/public/embed/player/1618253294/day?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ3ZWJjYW1faWQiOjE2MTgyNTMyOTQsInVzZXJfdHlwZSI6MSwiYXZhaWxhYmxlX3NpemVzIjoidGVhc2VyYmcsaWNvbix0aHVtYm5haWwscHJldmlldyxub3JtYWwsZnVsbCxwYW5vcmFtYSIsImlhdCI6MTcyOTkwNDU4MSwiZXhwIjoxNzI5OTkwOTgxfQ.yZy4BKy1bPtTkvi7in2WY-hbmucbbk8IRGE-PDKL8SU&amp;autoPlay=1" width="389" height="219"></iframe>
                 </a>
-                <div class="title webcam-city" title="Recife: Peace Community Center - COMPAZ- Alto Santa Terezinha" data-coord="-8.01045 -34.90322"> <!-- cspell:ignore COMPAZ -->
-                    Recife: Peace Community Center - COMPAZ- Alto Santa Terezinha <!-- cspell:ignore COMPAZ -->
+                <div class="title webcam-city" title="Recife: Peace Community Center - COMPAZ- Alto Santa Terezinha" data-coord="-8.01045 -34.90322">
+                    Recife: Peace Community Center - COMPAZ- Alto Santa Terezinha
                     <div class="webcam-extra-info">
                         <span class="last-update">
                             <div class="almost-out-of-date"></div>
@@ -493,16 +481,6 @@
         </div>
     </div>
 
-    <div class="camera-grid">
-        <div class="camera-feed">
-            <img src="camera1.jpg" alt="Camera 1">
-        </div>
-        <div class="camera-feed">
-            <img src="camera2.jpg" alt="Camera 2">
-        </div>
-        <!-- Adicione mais feeds de câmeras conforme necessário -->
-    </div>
-
     <script>
         const cameraData = [
 		  {
@@ -519,8 +497,8 @@
 		  },
 		  {
 			src: "http://transito.gtrans.com.br/cttupe/index.php/portal/getImg/192.168.11.217/",
-            alt: "Câmera em Alto Santa Terezinha - Próximo ao COMPAZ", <!-- cspell:ignore COMPAZ -->
-            info: "Rua Alto Santa Terezinha - Próximo ao COMPAZ", <!-- cspell:ignore COMPAZ -->
+			alt: "Câmera em Alto Santa Terezinha - Próximo ao COMPAZ",
+			info: "Rua Alto Santa Terezinha - Próximo ao COMPAZ",
 			mapUrl: "https://www.google.com/maps/search/?api=1&query=-8.0105487,-34.9030866"
 		  },
 		  {
@@ -531,8 +509,8 @@
 		  },
 		  {
 			src: "http://transito.gtrans.com.br/cttupe/index.php/portal/getImg/192.168.11.220/",
-            alt: "Câmera em Av. Antônio de Goés - (SAD)", <!-- cspell:ignore Goés -->
-            info: "Av. Antônio de Goés - (SAD)", <!-- cspell:ignore Goés -->
+			alt: "Câmera em Av. Antônio de Goés - (SAD)",
+			info: "Av. Antônio de Goés - (SAD)",
 			mapUrl: "https://www.google.com/maps/search/?api=1&query=-8.0889793,-34.8831811"
 		  },
 		  {
@@ -639,14 +617,14 @@
 		  },
 		  {
 			src: "http://transito.gtrans.com.br/cttupe/index.php/portal/getImg/192.168.11.235/",
-            alt: "Câmera em Pernambuco (UR1 Ibura)", <!-- cspell:ignore Ibura -->
-            info: "Av. Pernambuco (UR1 Ibura)", <!-- cspell:ignore Ibura -->
+			alt: "Câmera em Pernambuco (UR1 Ibura)",
+			info: "Av. Pernambuco (UR1 Ibura)",
 			mapUrl: "https://www.google.com/maps/search/?api=1&query=-8.1186386,-34.9463362"
 		  },
 		  {
 			src: "http://transito.gtrans.com.br/cttupe/index.php/portal/getImg/192.168.11.205/",
-            alt: "Câmera em Recife x Rua Jean Emile Favre", <!-- cspell:ignore Favre -->
-            info: "Av. Recife x Rua Jean Emile Favre", <!-- cspell:ignore Favre -->
+			alt: "Câmera em Recife x Rua Jean Emile Favre",
+			info: "Av. Recife x Rua Jean Emile Favre",
 			mapUrl: "https://www.google.com/maps/search/?api=1&query=-8.1151579,-34.9245366"
 		  },
 		  {
@@ -797,9 +775,8 @@
                 countdownTime--;
                 if (countdownTime < 0) {
                     clearInterval(interval);
-                    countdownTime = 180; // Resetar a contagem <!-- cspell:ignore Resetar -->
+                    countdownTime = 180; // Resetar a contagem
                     updateCameras();
-                    startCountdown(); // Reiniciar o contador após a atualização
                 }
 
                 const minutes = Math.floor(countdownTime / 60);
