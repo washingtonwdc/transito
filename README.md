@@ -10,19 +10,26 @@
             background-color: #f4f4f4;
             margin: 0;
             padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
         }
         header {
             background-color: #007BFF;
             color: white;
             padding: 20px;
             text-align: center;
-            position: fixed;
             width: 100%;
+            position: fixed;
             top: 0;
             z-index: 1000;
         }
         main {
             padding: 80px 20px 20px 20px;
+            width: 100%;
+            max-width: 1200px;
         }
         h1 {
             margin: 0;
@@ -31,20 +38,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
             gap: 20px;
-        }
-        .camera {
-            background-color: white;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        .camera img {
-            max-width: 100%;
-            border-radius: 5px;
-        }
-        .camera h2 {
-            margin-top: 0;
+            margin-top: 20px;
         }
         .card {
             background: white;
@@ -89,7 +83,7 @@
             color: #FF4500;
         }
         #map {
-            height: 100px; 
+            height: 100px;
             margin-top: 20px;
         }
         .modal {
@@ -144,26 +138,26 @@
         <div class="grid" id="cameraGrid"></div>
         <div id="map"></div>
         <div class="grid">
-            <div class="camera">
-                <h2>Câmera 1</h2>
+            <div class="card">
                 <img src="camera1.jpg" alt="Câmera 1">
-                <p>Localização: Avenida Boa Viagem</p>
+                <div class="info">Localização: Avenida Boa Viagem</div>
+                <a href="#" class="button">Ver Detalhes</a>
             </div>
-            <div class="camera">
-                <h2>Câmera 2</h2>
+            <div class="card">
                 <img src="camera2.jpg" alt="Câmera 2">
-                <p>Localização: Rua da Aurora</p>
+                <div class="info">Localização: Rua da Aurora</div>
+                <a href="#" class="button">Ver Detalhes</a>
             </div>
-            <div class="camera">
-                <h2>Câmera 3</h2>
+            <div class="card">
                 <img src="camera3.jpg" alt="Câmera 3">
-                <p>Localização: Avenida Agamenon Magalhães</p>
+                <div class="info">Localização: Avenida Agamenon Magalhães</div>
+                <a href="#" class="button">Ver Detalhes</a>
             </div>
             <!-- Adicione mais câmeras conforme necessário -->
         </div>
     </main>
     <footer>
-        Desenvolvido por Washington Dias
+        <p>&copy; 2023 Câmeras de Trânsito - Recife</p>
     </footer>
 
     <div class="modal" id="imageModal">
