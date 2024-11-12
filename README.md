@@ -31,7 +31,20 @@
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
             gap: 20px;
-            margin-top: 20px;
+        }
+        .camera {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .camera img {
+            max-width: 100%;
+            border-radius: 5px;
+        }
+        .camera h2 {
+            margin-top: 0;
         }
         .card {
             background: white;
@@ -130,6 +143,24 @@
         <div class="countdown" id="countdown">03:00</div>
         <div class="grid" id="cameraGrid"></div>
         <div id="map"></div>
+        <div class="grid">
+            <div class="camera">
+                <h2>Câmera 1</h2>
+                <img src="camera1.jpg" alt="Câmera 1">
+                <p>Localização: Avenida Boa Viagem</p>
+            </div>
+            <div class="camera">
+                <h2>Câmera 2</h2>
+                <img src="camera2.jpg" alt="Câmera 2">
+                <p>Localização: Rua da Aurora</p>
+            </div>
+            <div class="camera">
+                <h2>Câmera 3</h2>
+                <img src="camera3.jpg" alt="Câmera 3">
+                <p>Localização: Avenida Agamenon Magalhães</p>
+            </div>
+            <!-- Adicione mais câmeras conforme necessário -->
+        </div>
     </main>
     <footer>
         Desenvolvido por Washington Dias
