@@ -6,6 +6,10 @@
         background-color: #f4f4f4;
         margin: 0;
         padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
     }
     header {
         background-color: #007BFF;
@@ -19,6 +23,9 @@
     }
     main {
         padding: 80px 20px 20px 20px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
     }
     h1 {
         margin: 0;
@@ -117,9 +124,10 @@
     }
     .camera-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        grid-template-columns: repeat(4, 1fr);
         gap: 16px;
-        padding: 16px;
+        max-width: 1200px;
+        width: 100%;
     }
 
     .camera-feed {
@@ -143,7 +151,21 @@
 
 ## Main
 <div style="padding: 80px 20px 20px 20px;">
-    <!-- Conteúdo principal aqui -->
+    <div class="camera-grid">
+        <div class="camera-feed">
+            <img src="camera1.jpg" alt="Camera 1">
+        </div>
+        <div class="camera-feed">
+            <img src="camera2.jpg" alt="Camera 2">
+        </div>
+        <div class="camera-feed">
+            <img src="camera3.jpg" alt="Camera 3">
+        </div>
+        <div class="camera-feed">
+            <img src="camera4.jpg" alt="Camera 4">
+        </div>
+        <!-- Adicione mais feeds de câmeras conforme necessário -->
+    </div>
 </div>
 
 <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY"></script>
