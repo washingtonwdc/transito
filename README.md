@@ -24,6 +24,8 @@
             width: 100%;
             position: fixed;
             top: 0;
+            left: 0; /* Adicionado */
+            right: 0; /* Adicionado */
             z-index: 1000;
         }
         main {
