@@ -48,7 +48,7 @@ Este projeto exibe um painel de câmeras de trânsito para Recife, Brasil. Inclu
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            background-color: #f0f0f0;
             margin: 0;
             padding: 0;
         }
@@ -69,33 +69,27 @@ Este projeto exibe um painel de câmeras de trânsito para Recife, Brasil. Inclu
             margin: 0;
         }
         .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            padding: 10px;
         }
         .card {
-            background: white;
-            border-radius: 10px;
+            background-color: white;
+            border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             overflow: hidden;
-            text-align: center;
-            cursor: pointer;
-            transition: transform 0.3s, box-shadow 0.3s;
+            transition: transform 0.2s;
         }
         .card:hover {
             transform: scale(1.05);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
         }
-        img {
+        .card img {
             width: 100%;
             height: auto;
-            display: block;
         }
-        .info {
-            padding: 15px;
-            color: #555;
-            font-weight: bold;
+        .card-info {
+            padding: 10px;
         }
         .button {
             background-color: #007BFF;
@@ -111,17 +105,18 @@ Este projeto exibe um painel de câmeras de trânsito para Recife, Brasil. Inclu
             background-color: #0056b3;
         }
         .countdown {
-            text-align: center;
+            font-size: 20px;
             font-weight: bold;
-            padding: 15px;
-            color: #FF4500;
+            color: #007BFF;
+            text-align: center;
+            margin: 20px 0;
         }
         #map {
             height: 100px; 
             margin-top: 20px;
         }
         .modal {
-            display: flex;
+            display: none;
             position: fixed;
             top: 0;
             left: 0;
@@ -130,6 +125,7 @@ Este projeto exibe um painel de câmeras de trânsito para Recife, Brasil. Inclu
             background-color: rgba(0, 0, 0, 0.8);
             justify-content: center;
             align-items: center;
+            animation: fadeIn 0.5s;
         }
         .modal img {
             max-width: 90%;
@@ -146,9 +142,6 @@ Este projeto exibe um painel de câmeras de trânsito para Recife, Brasil. Inclu
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
-        }
-        .modal.show {
-            animation: fadeIn 0.5s;
         }
         footer {
             background-color: #007BFF;
@@ -167,12 +160,12 @@ Este projeto exibe um painel de câmeras de trânsito para Recife, Brasil. Inclu
         <h1>Câmeras de Trânsito - Recife</h1>
     </header>
     <main>
-        <div class="countdown" id="countdown">Atualizando em: 3:00</div>
-        <div class="grid" id="camera-grid"></div>
+        <div class="countdown" id="countdown">03:00</div>
+        <div class="grid" id="cameraGrid"></div>
         <div id="map"></div>
     </main>
     <footer>
-        &copy; 2024 Câmeras de Trânsito - Recife - @Washington Dias
+        Desenvolvido por Washington Dias
     </footer>
 
     <div class="modal" id="imageModal">
@@ -488,262 +481,40 @@ Este projeto exibe um painel de câmeras de trânsito para Recife, Brasil. Inclu
 
     <script>
         const cameraData = [
-		  {
-			src: "http://transito.gtrans.com.br/cttupe/index.php/portal/getImg/192.168.11.223/",
-			alt: "Câmera em Aeroporto - Desembarque",
-			info: "Aeroporto - Desembarque",
-			mapUrl: "https://www.google.com/maps/search/?api=1&query=-8.1318843,-34.9177437"
-		  },
-		  {
-			src: "http://transito.gtrans.com.br/cttupe/index.php/portal/getImg/192.168.11.224/",
-			alt: "Câmera em Aeroporto - Embarque",
-			info: "Aeroporto - Embarque",
-			mapUrl: "https://www.google.com/maps/search/?api=1&query=-8.1318843,-34.9177437"
-		  },
-		  {
-			src: "http://transito.gtrans.com.br/cttupe/index.php/portal/getImg/192.168.11.217/",
-			alt: "Câmera em Alto Santa Terezinha - Próximo ao COMPAZ",
-			info: "Rua Alto Santa Terezinha - Próximo ao COMPAZ",
-			mapUrl: "https://www.google.com/maps/search/?api=1&query=-8.0105487,-34.9030866"
-		  },
-		  {
-			src: "http://transito.gtrans.com.br/cttupe/index.php/portal/getImg/192.168.11.210/",
-			alt: "Câmera em Av. Alfredo Lisboa - Marco Zero",
-			info: "Av. Alfredo Lisboa - Marco Zero",
-			mapUrl: "https://www.google.com/maps/search/?api=1&query=-8.062957,-34.871137"
-		  },
-		  {
-			src: "http://transito.gtrans.com.br/cttupe/index.php/portal/getImg/192.168.11.220/",
-			alt: "Câmera em Av. Antônio de Goés - (SAD)",
-			info: "Av. Antônio de Goés - (SAD)",
-			mapUrl: "https://www.google.com/maps/search/?api=1&query=-8.0889793,-34.8831811"
-		  },
-		  {
-			src: "http://transito.gtrans.com.br/cttupe/index.php/portal/getImg/192.168.11.141/",
-			alt: "Câmera em Av. Caxangá, Semáforo 609",
-			info: "Av. Caxangá, Semáforo 609",
-			mapUrl: "https://www.google.com/maps/search/?api=1&query=-8.034399,-34.949951"
-		  },
-		  {
-			src: "http://transito.gtrans.com.br/cttupe/index.php/portal/getImg/192.168.11.207/",
-			alt: "Câmera em Cons. Rosa e Silva x Av. Santos Dumont",
-			info: "Av. Cons. Rosa e Silva x Av. Santos Dumont",
-			mapUrl: "https://www.google.com/maps/search/?api=1&query=-8.0395947,-34.8993822"
-		  },
-		  {
-			src: "http://transito.gtrans.com.br/cttupe/index.php/portal/getImg/192.168.11.231/",
-			alt: "Câmera em Av. Conselheiro Aguiar, Rua Barão de Souza Leão",
-			info: "Av. Conselheiro Aguiar, Rua Barão de Souza Leão",
-			mapUrl: "https://www.google.com/maps/search/?api=1&query=-8.1319088,-34.9014824"
-		  },
-		  {
-			src: "http://transito.gtrans.com.br/cttupe/index.php/portal/getImg/192.168.11.214/",
-			alt: "Câmera em Av. da Recuperação x Rua Dois Irmãos",
-			info: "Av. da Recuperação x Rua Dois Irmãos",
-			mapUrl: "https://www.google.com/maps/search/?api=1&query=-8.0172259,-34.9408671"
-		  },		 
-		  {
-			src: "http://transito.gtrans.com.br/cttupe/index.php/portal/getImg/192.168.11.204/",
-			alt: "Câmera em Av. São Paulo (Três Carneiros)",
-			info: "Av. São Paulo (Três Carneiros)",
-			mapUrl: "https://www.google.com/maps/search/?api=1&query=-8.1244851,-34.9573657"
-		  },
-		  {
-			src: "http://transito.gtrans.com.br/cttupe/index.php/portal/getImg/192.168.11.103/",
-			alt: "Câmera em Av. Marques de Olinda, Semáforo 020, Bairro do Recife",
-			info: "Av. Marques de Olinda, Semáforo 020, Bairro do Recife",
-			mapUrl: "https://www.google.com/maps/search/?api=1&query=-8.063417,-34.873583"
-		  },
-		  {
-			src: "http://transito.gtrans.com.br/cttupe/index.php/portal/getImg/192.168.11.126/",
-			alt: "Câmera em Av. Des. José Neves - Sentido Subúrbio",
-			info: "Av. Des. José Neves - Sentido Subúrbio",
-			mapUrl: "https://www.google.com/maps/search/?api=1&query=-8.1212609,-34.9097869"
-		  },
-		  {
-			src: "http://transito.gtrans.com.br/cttupe/index.php/portal/getImg/192.168.11.222/",
-			alt: "Câmera em Av. Dois Rios, Semáforo 561",
-			info: "Av. Dois Rios, Semáforo 561",
-			mapUrl: "https://www.google.com/maps/search/?api=1&query=-8.1104889,-34.9369696"
-		  },
-		  {
-			src: "http://transito.gtrans.com.br/cttupe/index.php/portal/getImg/192.168.11.202/",
-			alt: "Câmera em Eng. Abdias de Carvalho x Gen. San Martin",
-			info: "Av. Eng. Abdias de Carvalho x Gen. San Martin",
-			mapUrl: "https://www.google.com/maps/search/?api=1&query=-8.0992523,-34.8904273"
-		  },
-		  {
-			src: "http://transito.gtrans.com.br/cttupe/index.php/portal/getImg/192.168.11.228/",
-			alt: "Câmera em Eng. Abdias de Carvalho x José Gonçalves",
-			info: "Av. Eng. Abdias de Carvalho x José Gonçalves",
-			mapUrl: "https://www.google.com/maps/search/?api=1&query=-8.0610797,-34.9048904"
-		  },
-		  {
-			src: "http://transito.gtrans.com.br/cttupe/index.php/portal/getImg/192.168.11.132/",
-			alt: "Câmera em Gov. Agamenon Magalhães, Sentido Boa Viagem",
-			info: "Av. Gov. Agamenon Magalhães, Sentido Boa Viagem",
-			mapUrl: "https://www.google.com/maps/search/?api=1&query=-8.0399542,-34.878934"
-		  },
-		  {
-			src: "http://transito.gtrans.com.br/cttupe/index.php/portal/getImg/192.168.11.189/",
-			alt: "Câmera em Gov. Agamenon Magalhães, Sentido Campo Grande",
-			info: "Av. Gov. Agamenon Magalhães, Sentido Campo Grande",
-			mapUrl: "https://www.google.com/maps/search/?api=1&query=-8.0394729,-34.878737"
-		  },
-		  {
-			src: "http://transito.gtrans.com.br/cttupe/index.php/portal/getImg/192.168.11.229/",
-			alt: "Câmera em Av. João de Barros x Rua 48",
-			info: "Av. João de Barros x Rua 48",
-				mapUrl: "https://www.google.com/maps/search/?api=1&query=-8.044729,-34.890026"
-		  },
-		  {
-			src: "http://transito.gtrans.com.br/cttupe/index.php/portal/getImg/192.168.11.130/",
-			alt: "Câmera em Av. Liberdade, Semáforo 440",
-			info: "Av. Liberdade, Semáforo 440",
-			mapUrl: "https://www.google.com/maps/search/?api=1&query=-8.0810669,-34.9683467"
-		  },
-		  {
-			src: "http://transito.gtrans.com.br/cttupe/index.php/portal/getImg/192.168.11.227/",
-			alt: "Câmera em Av. Maria Irene, Semáforo 581",
-			info: "Av. Maria Irene, Semáforo 581",
-			mapUrl: "https://www.google.com/maps/search/?api=1&query=-8.0490336,-34.8964562"
-		  },
-		  {
-			src: "http://transito.gtrans.com.br/cttupe/index.php/portal/getImg/192.168.11.135/",
-			alt: "Câmera em Norte, Semáforo 062",
-			info: "Av.Norte, Semáforo 062",
-			mapUrl: "https://www.google.com/maps/search/?api=1&query=-8.029633,-34.900494"
-		  },
-		  {
-			src: "http://transito.gtrans.com.br/cttupe/index.php/portal/getImg/192.168.11.136/",
-			alt: "Câmera em Norte, Semáforo 081",
-			info: "Av. Norte, Semáforo 081",
-			mapUrl: "https://www.google.com/maps/search/?api=1&query=-8.033536,-34.896475"
-		  },
-		  {
-			src: "http://transito.gtrans.com.br/cttupe/index.php/portal/getImg/192.168.11.235/",
-			alt: "Câmera em Pernambuco (UR1 Ibura)",
-			info: "Av. Pernambuco (UR1 Ibura)",
-			mapUrl: "https://www.google.com/maps/search/?api=1&query=-8.1186386,-34.9463362"
-		  },
-		  {
-			src: "http://transito.gtrans.com.br/cttupe/index.php/portal/getImg/192.168.11.205/",
-			alt: "Câmera em Recife x Rua Jean Emile Favre",
-			info: "Av. Recife x Rua Jean Emile Favre",
-			mapUrl: "https://www.google.com/maps/search/?api=1&query=-8.1151579,-34.9245366"
-		  },
-		  {
-			src: "http://transito.gtrans.com.br/cttupe/index.php/portal/getImg/192.168.11.219/",
-			alt: "Câmera em Recife, próximo ao Semáforo 059",
-			info: "Av. Recife, próximo ao Semáforo 059",
-			mapUrl: "https://www.google.com/maps/search/?api=1&query=-8.09400623,-34.9289640"
-		  },
-		  {
-			src: "http://transito.gtrans.com.br/cttupe/index.php/portal/getImg/192.168.11.121/",
-			alt: "Câmera em Abdias de Carvalho - Estácio",
-			info: "Av. Abdias de Carvalho - Estácio",
-			mapUrl: "https://www.google.com/maps/search/?api=1&query=-8.0623563,-34.9168512"
-		  },
-          {
-			src: "http://transito.gtrans.com.br/cttupe/index.php/portal/getImg/192.168.11.65/",
-			alt: "Câmera em Agamenon Magalhães x Joaquim Inácio - Giro",
-			info: "Av. Agamenon Magalhães x Joaquim Inácio - Giro",
-			mapUrl: "https://www.google.com/maps/search/?api=1&query=-8.0621773,-34.8977463"
-		  },
-		  {
-			src: "http://transito.gtrans.com.br/cttupe/index.php/portal/getImg/192.168.11.63/",
-			alt: "Câmera em Av. Ag. Magalhães x Bandeira Filho - Semáforo 17",
-			info: "Av. Ag. Magalhães x Bandeira Filho - Semáforo 17",
-			mapUrl: "https://www.google.com/maps/search/?api=1&query=-8.0517371,-34.8950253"
-		  },
-		  {
-			src: "http://transito.gtrans.com.br/cttupe/index.php/portal/getImg/192.168.11.192/",
-			alt: "Câmera em Av. Beberibe - Próximo ao Arruda",
-			info: "Av. Beberibe - Próximo ao Arruda",
-			mapUrl: "https://www.google.com/maps/search/?api=1&query=-8.0279204,-34.8928982"
-		  },
-		  {
-			src: "http://transito.gtrans.com.br/cttupe/index.php/portal/getImg/192.168.11.114/",
-			alt: "Câmera em Av. Boa Viagem x Polo Pina - FIXA",
-			info: "Av. Boa Viagem x Polo Pina - FIXA",
-			mapUrl: "https://www.google.com/maps/search/?api=1&query=-8.0918999,-34.8820963"
-		  },
-		  {
-			src: "http://transito.gtrans.com.br/cttupe/index.php/portal/getImg/192.168.11.109/",
-			alt: "Câmera em Conde da Boa Vista x Rua Sete de Setembro - Semáforo",
-			info: "Av. Conde da Boa Vista x Rua Sete de Setembro - Semáforo",
-			mapUrl: "https://www.google.com/maps/search/?api=1&query=-8.0611731,-34.8832374"
-		  },
-		  {
-			src: "http://transito.gtrans.com.br/cttupe/index.php/portal/getImg/192.168.11.125/",
-			alt: "Câmera em Av. Des. José Neves - Sentido Centro",
-			info: "Av. Des. José Neves - Sentido Centro",
-			mapUrl: "https://www.google.com/maps/search/?api=1&query=-8.1214768,-34.9093352"
-		  },
-		  {
-			src: "http://transito.gtrans.com.br/cttupe/index.php/portal/getImg/192.168.11.140/",
-			alt: "Câmera em Av. Dr. José Rufino, Sentido Centro, Semáforo 044",
-			info: "Av. Dr. José Rufino, Sentido Centro, Semáforo 044",
-			mapUrl: "https://www.google.com/maps/search/?api=1&query=-8.091724,-34.936071"
-		  },
-		  {
-			src: "http://transito.gtrans.com.br/cttupe/index.php/portal/getImg/192.168.11.107/",
-			alt: "Câmera em Eng. Abdias de Carvalho Nº 441 - Semáforo 271",
-			info: "Av. Eng. Abdias de Carvalho Nº 441 - Semáforo 271",
-			mapUrl: "https://www.google.com/maps/search/?api=1&query=-8.0640708,-34.9356262"
-		  },
-		  {
-			src: "http://transito.gtrans.com.br/cttupe/index.php/portal/getImg/192.168.11.75/",
-			alt: "Câmera em Eng. Abdias de Carvalho Nº 441 - Semáforo 272",
-			info: "Av. Eng. Abdias de Carvalho Nº 441 - Semáforo 272",
-			mapUrl: "https://www.google.com/maps/search/?api=1&query=-8.0639982,-34.9357633"
-		  },
-		  {
-			src: "http://transito.gtrans.com.br/cttupe/index.php/portal/getImg/192.168.11.117/",
-			alt: "Câmera em Av. Recife, Semáforo 617 - Sentido UFPE",
-			info: "Av. Recife, Semáforo 617 - Sentido UFPE",
-			mapUrl: "https://www.google.com/maps/search/?api=1&query=-8.1005774,-34.9280712"
-		  },
-		  {
-			src: "http://transito.gtrans.com.br/cttupe/index.php/portal/getImg/192.168.11.148/",
-			alt: "Câmera em Av. Dr. José Rufino - Sentido Av. Recife - Colégio Visão",
-			info: "Av. Dr. José Rufino - Sentido Av. Recife - Colégio Visão",
-			mapUrl: "https://www.google.com/maps/search/?api=1&query=-8.0846798,-34.928241"
-		  },
-		  {
-			src: "http://transito.gtrans.com.br/cttupe/index.php/portal/getImg/192.168.11.115/",
-			alt: "Câmera em Marechal Mascarenhas de Moraes, Semáforo 530",
-			info: "Av. Marechal Mascarenhas de Moraes, Semáforo 530",
-			mapUrl: "https://www.google.com/maps/search/?api=1&query=-8.1273685,-34.9155198"
-		  },
-		  {
-			src: "http://transito.gtrans.com.br/cttupe/index.php/portal/getImg/192.168.11.113/",
-			alt: "Câmera em Mascarenhas de Moraes, Semáforo 531, sentido Aeroporto",
-			info: "Av. Mascarenhas de Moraes, Semáforo 531, sentido Aeroporto",
-			mapUrl: "https://www.google.com/maps/search/?api=1&query=-8.1273685,-34.9155198"
-		  },
-		  {
-			src: "http://transito.gtrans.com.br/cttupe/index.php/portal/getImg/192.168.11.145/",
-			alt: "Câmera em Norte Miguel Arraes de Alencar, Semáforo 043",
-			info: "Av. Norte Miguel Arraes de Alencar, Semáforo 043",
-			mapUrl: "https://www.google.com/maps/search/?api=1&query=-8.02776,-34.928"
-		  },
-		  {
-			src: "http://transito.gtrans.com.br/cttupe/index.php/portal/getImg/192.168.11.149/",
-			alt: "Câmera em Norte Miguel Arraes de Alencar, Semáforo 043",
-			info: "Av. Norte Miguel Arraes de Alencar, Semáforo 043",
-			mapUrl: "https://www.google.com/maps/search/?api=1&query=-8.038574,-34.892"
-		  },
-		  {
-			src: "http://transito.gtrans.com.br/cttupe/index.php/portal/getImg/192.168.11.116/",
-			alt: "Câmera em Recife - Semáforo 336 - Sentido Aeroporto",
-			info: "Av. Recife - Semáforo 336 - Sentido Aeroporto",
-			mapUrl: "https://www.google.com/maps/search/?api=1&query=-8.1003307,-34.9282209"
-		  }
-		]
+            {
+                src: "http://transito.gtrans.com.br/cttupe/index.php/portal/getImg/192.168.11.148/",
+                alt: "Câmera em Av. Dr. José Rufino - Sentido Av. Recife - Colégio Visão",
+                info: "Av. Dr. José Rufino - Sentido Av. Recife - Colégio Visão",
+                mapUrl: "https://www.google.com/maps/search/?api=1&query=-8.0846798,-34.928241"
+            },
+            {
+                src: "http://transito.gtrans.com.br/cttupe/index.php/portal/getImg/192.168.11.115/",
+                alt: "Câmera em Marechal Mascarenhas de Moraes, Semáforo 530",
+                info: "Av. Marechal Mascarenhas de Moraes, Semáforo 530",
+                mapUrl: "https://www.google.com/maps/search/?api=1&query=-8.1273685,-34.9155198"
+            },
+            {
+                src: "http://transito.gtrans.com.br/cttupe/index.php/portal/getImg/192.168.11.113/",
+                alt: "Câmera em Mascarenhas de Moraes, Semáforo 531, sentido Aeroporto",
+                info: "Av. Mascarenhas de Moraes, Semáforo 531, sentido Aeroporto",
+                mapUrl: "https://www.google.com/maps/search/?api=1&query=-8.1273685,-34.9155198"
+            },
+            {
+                src: "http://transito.gtrans.com.br/cttupe/index.php/portal/getImg/192.168.11.145/",
+                alt: "Câmera em Norte Miguel Arraes de Alencar, Semáforo 043",
+                info: "Av. Norte Miguel Arraes de Alencar, Semáforo 043",
+                mapUrl: "https://www.google.com/maps/search/?api=1&query=-8.02776,-34.928"
+            },
+            {
+                src: "http://transito.gtrans.com.br/cttupe/index.php/portal/getImg/192.168.11.149/",
+                alt: "Câmera em Norte Miguel Arraes de Alencar, Semáforo 043",
+                info: "Av. Norte Miguel Arraes de Alencar, Semáforo 043",
+                mapUrl: "https://www.google.com/maps/search/?api=1&query=-8.02776,-34.928"
+            }
+        ];
 
         function updateCameras() {
-            const grid = document.getElementById('camera-grid');
+            const grid = document.getElementById('cameraGrid');
             grid.innerHTML = ''; // Limpar conteúdo existente
 
             cameraData.forEach(cam => {
@@ -751,8 +522,10 @@ Este projeto exibe um painel de câmeras de trânsito para Recife, Brasil. Inclu
                 card.className = 'card';
                 card.innerHTML = `
                     <img src="${cam.src}?${new Date().getTime()}" alt="${cam.alt}" onclick="openModal('${cam.src}?${new Date().getTime()}', '${cam.alt}')">
-                    <div class="info">${cam.info}</div>
-                    <a href="${cam.mapUrl}" class="button" target="_blank">Ver no Google Maps</a>
+                    <div class="card-info">
+                        <p>${cam.info}</p>
+                        <a href="${cam.mapUrl}" class="button" target="_blank">Ver no Google Maps</a>
+                    </div>
                 `;
                 grid.appendChild(card);
             });
