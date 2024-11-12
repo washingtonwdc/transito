@@ -1,11 +1,3 @@
-<<<<<<< HEAD
-=======
-
->>>>>>> 8b700d927ddd24d09643e5561de2fa5334c9b1f8
-<!--
-
-Este arquivo HTML exibe um painel de câmeras de trânsito para Recife, Brasil. Inclui um layout em grade de feeds de câmeras de trânsito, um mapa do Google e um modal para visualização detalhada das imagens. A página também possui um temporizador de contagem regressiva que atualiza os feeds das câmeras a cada 3 minutos.
-
 Componentes Principais:
 - Estrutura HTML5 com design responsivo.
 - CSS para estilizar o layout, incluindo uma grade para feeds de câmeras, modal para visualização de imagens e temporizador de contagem regressiva.
@@ -33,7 +25,7 @@ Nota:
 - Substitua 'YOUR_GOOGLE_MAPS_API_KEY' por uma chave de API válida do Google Maps.
 
 Considerações:
-- Este projeto foi desenvolvido por Washington Dias para ajudar na visualização das câmeras de trânsito da CTTU.
+- Este projeto foi desenvolvido por Washington Dias para ajudar na visualização das câmeras de trânsito da CTTU. <!-- cspell:ignore CTTU -->
 - As imagens das câmeras nem sempre atualizam em tempo real.
 - Se você tiver sugestões ou melhorias para este projeto, sinta-se à vontade para contribuir.
 -->
@@ -68,14 +60,14 @@ Considerações:
         }
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); <!-- cspell:ignore minmax -->
             gap: 20px;
             margin-top: 20px;
         }
         .card {
             background: white;
             border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); <!-- cspell:ignore rgba -->
             overflow: hidden;
             text-align: center;
             cursor: pointer;
@@ -83,7 +75,7 @@ Considerações:
         }
         .card:hover {
             transform: scale(1.05);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); <!-- cspell:ignore rgba -->
         }
         img {
             width: 100%;
@@ -126,7 +118,7 @@ Considerações:
             top: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
+            background-color: rgba(0, 0, 0, 0.8); <!-- cspell:ignore rgba -->
             justify-content: center;
             align-items: center;
         }
@@ -142,7 +134,7 @@ Considerações:
             font-size: 30px;
             cursor: pointer;
         }
-        @keyframes fadeIn {
+        @keyframes fadeIn { <!-- cspell:ignore keyframes -->
             from { opacity: 0; }
             to { opacity: 1; }
         }
@@ -199,7 +191,7 @@ Considerações:
                             há 39 minutos
                         </span>
                         <div class="activate-embed">
-                            <span class="fasvg-12 fa-play"></span>
+                            <span class="fasvg-12 fa-play"></span> <!-- cspell:ignore fasvg -->
                         </div>
                         <span class="distance">
                             Distância: 1.6 km
@@ -212,7 +204,7 @@ Considerações:
         <div class="col-6 webcam-container">
             <div class="webcam-content" data-embed="https://webcams.windy.com/webcams/public/embed/player/1618847951/day?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ3ZWJjYW1faWQiOjE2MTg4NDc5NTEsInVzZXJfdHlwZSI6MSwiYXZhaWxhYmxlX3NpemVzIjoidGVhc2VyYmcsaWNvbix0aHVtYm5haWwscHJldmlldyxub3JtYWwsZnVsbCxwYW5vcmFtYSIsImlhdCI6MTcyOTkwNDU4MSwiZXhwIjoxNzI5OTkwOTgxfQ.jTPeZjlCKqPrTf4F6c37k5CNJHpSbI2y9kIh6ptcqu0&amp;autoPlay=1">
                 <a class="webcam-img" href="https://images-webcams.windy.com/public/51/1618847951/current/full/1618847951.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ3ZWJjYW1faWQiOjE2MTg4NDc5NTEsInVzZXJfdHlwZSI6MSwiYXZhaWxhYmxlX3NpemVzIjoidGVhc2VyYmcsaWNvbix0aHVtYm5haWwscHJldmlldyxub3JtYWwsZnVsbCxwYW5vcmFtYSIsImlhdCI6MTcyOTkwNDU4MSwiZXhwIjoxNzI5OTkwOTgxfQ.jTPeZjlCKqPrTf4F6c37k5CNJHpSbI2y9kIh6ptcqu0" title="Recife" sub-html="
-                    <div style='font-weight: bold; font-size: 1.5em; margin-bottom: 5px;'>Recife: Paissandu - Avenida Governador Agamenon Magalhães</div>
+                    <div style='font-weight: bold; font-size: 1.5em; margin-bottom: 5px;'>Recife: Paissandu - Avenida Governador Agamenon Magalhães</div> <!-- cspell:ignore Paissandu -->
                     <div class='webcam-extra-info' style='font-size: 1.2em;'>
                         há 1 hora | 
                         Distância: 2 km
@@ -220,8 +212,8 @@ Considerações:
                 " data-lg-id="c6868d3c-a9e6-4de9-80d0-6dda035eafea">
                 <iframe src="https://webcams.windy.com/webcams/public/embed/player/1618847951/day?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ3ZWJjYW1faWQiOjE2MTg4NDc5NTEsInVzZXJfdHlwZSI6MSwiYXZhaWxhYmxlX3NpemVzIjoidGVhc2VyYmcsaWNvbix0aHVtYm5haWwscHJldmlldyxub3JtYWwsZnVsbCxwYW5vcmFtYSIsImlhdCI6MTcyOTkwNDU4MSwiZXhwIjoxNzI5OTkwOTgxfQ.jTPeZjlCKqPrTf4F6c37k5CNJHpSbI2y9kIh6ptcqu0&amp;autoPlay=1" width="389" height="219"></iframe>
                 </a>
-                <div class="title webcam-city" title="Recife: Paissandu - Avenida Governador Agamenon Magalhães" data-coord="-8.06196 -34.89769">
-                    Recife: Paissandu - Avenida Governador Agamenon Magalhães
+                <div class="title webcam-city" title="Recife: Paissandu - Avenida Governador Agamenon Magalhães" data-coord="-8.06196 -34.89769"> <!-- cspell:ignore Paissandu -->
+                    Recife: Paissandu - Avenida Governador Agamenon Magalhães <!-- cspell:ignore Paissandu -->
                     <div class="webcam-extra-info">
                         <span class="last-update">
                             <div class="out-of-date"></div>
@@ -249,7 +241,7 @@ Considerações:
                 " data-lg-id="0b424c91-0367-410f-9f68-1ae9dafc61cd">
                 <iframe src="https://webcams.windy.com/webcams/public/embed/player/1618847806/day?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ3ZWJjYW1faWQiOjE2MTg4NDc4MDYsInVzZXJfdHlwZSI6MSwiYXZhaWxhYmxlX3NpemVzIjoidGVhc2VyYmcsaWNvbix0aHVtYm5haWwscHJldmlldyxub3JtYWwsZnVsbCxwYW5vcmFtYSIsImlhdCI6MTcyOTkwNDU4MSwiZXhwIjoxNzI5OTkwOTgxfQ.VmXvBPKhIGgTl1mSQ49dgDj2tuRx875LHB1IlPSiyBY&amp;autoPlay=1" width="389" height="219"></iframe>
                 </a>
-                <div class="title webcam-city" title="Recife: Paissandu - Avenida Governador Agamenon Magalhães" data-coord="-8.06289 -34.89739">
+                <div class="title webcam-city" title="Recife: Paissandu - Avenida Governador Agamenon Magalhães" data-coord="-8.06289 -34.89739"> <!-- cspell:ignore Paissandu -->
                     Recife: Paissandu - Avenida Governador Agamenon Magalhães
                     <div class="webcam-extra-info">
                         <span class="last-update">
@@ -371,7 +363,7 @@ Considerações:
         <div class="col-6 webcam-container">
             <div class="webcam-content" data-embed="https://webcams.windy.com/webcams/public/embed/player/1618253294/day?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ3ZWJjYW1faWQiOjE2MTgyNTMyOTQsInVzZXJfdHlwZSI6MSwiYXZhaWxhYmxlX3NpemVzIjoidGVhc2VyYmcsaWNvbix0aHVtYm5haWwscHJldmlldyxub3JtYWwsZnVsbCxwYW5vcmFtYSIsImlhdCI6MTcyOTkwNDU4MSwiZXhwIjoxNzI5OTkwOTgxfQ.yZy4BKy1bPtTkvi7in2WY-hbmucbbk8IRGE-PDKL8SU&amp;autoPlay=1">
                 <a class="webcam-img" href="https://images-webcams.windy.com/public/94/1618253294/current/full/1618253294.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ3ZWJjYW1faWQiOjE2MTgyNTMyOTQsInVzZXJfdHlwZSI6MSwiYXZhaWxhYmxlX3NpemVzIjoidGVhc2VyYmcsaWNvbix0aHVtYm5haWwscHJldmlldyxub3JtYWwsZnVsbCxwYW5vcmFtYSIsImlhdCI6MTcyOTkwNDU4MSwiZXhwIjoxNzI5OTkwOTgxfQ.yZy4BKy1bPtTkvi7in2WY-hbmucbbk8IRGE-PDKL8SU" title="Recife" sub-html="
-                    <div style='font-weight: bold; font-size: 1.5em; margin-bottom: 5px;'>Recife: Peace Community Center - COMPAZ- Alto Santa Terezinha</div>
+                    <div style='font-weight: bold; font-size: 1.5em; margin-bottom: 5px;'>Recife: Peace Community Center - COMPAZ- Alto Santa Terezinha</div> <!-- cspell:ignore COMPAZ -->
                     <div class='webcam-extra-info' style='font-size: 1.2em;'>
                         há 45 minutos | 
                         Distância: 4.7 km
@@ -379,8 +371,8 @@ Considerações:
                 " data-lg-id="cb6681cc-cd71-4a5b-b34b-fc192f769760">
                 <iframe src="https://webcams.windy.com/webcams/public/embed/player/1618253294/day?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ3ZWJjYW1faWQiOjE2MTgyNTMyOTQsInVzZXJfdHlwZSI6MSwiYXZhaWxhYmxlX3NpemVzIjoidGVhc2VyYmcsaWNvbix0aHVtYm5haWwscHJldmlldyxub3JtYWwsZnVsbCxwYW5vcmFtYSIsImlhdCI6MTcyOTkwNDU4MSwiZXhwIjoxNzI5OTkwOTgxfQ.yZy4BKy1bPtTkvi7in2WY-hbmucbbk8IRGE-PDKL8SU&amp;autoPlay=1" width="389" height="219"></iframe>
                 </a>
-                <div class="title webcam-city" title="Recife: Peace Community Center - COMPAZ- Alto Santa Terezinha" data-coord="-8.01045 -34.90322">
-                    Recife: Peace Community Center - COMPAZ- Alto Santa Terezinha
+                <div class="title webcam-city" title="Recife: Peace Community Center - COMPAZ- Alto Santa Terezinha" data-coord="-8.01045 -34.90322"> <!-- cspell:ignore COMPAZ -->
+                    Recife: Peace Community Center - COMPAZ- Alto Santa Terezinha <!-- cspell:ignore COMPAZ -->
                     <div class="webcam-extra-info">
                         <span class="last-update">
                             <div class="almost-out-of-date"></div>
@@ -501,8 +493,8 @@ Considerações:
 		  },
 		  {
 			src: "http://transito.gtrans.com.br/cttupe/index.php/portal/getImg/192.168.11.217/",
-			alt: "Câmera em Alto Santa Terezinha - Próximo ao COMPAZ",
-			info: "Rua Alto Santa Terezinha - Próximo ao COMPAZ",
+            alt: "Câmera em Alto Santa Terezinha - Próximo ao COMPAZ", <!-- cspell:ignore COMPAZ -->
+            info: "Rua Alto Santa Terezinha - Próximo ao COMPAZ", <!-- cspell:ignore COMPAZ -->
 			mapUrl: "https://www.google.com/maps/search/?api=1&query=-8.0105487,-34.9030866"
 		  },
 		  {
@@ -513,8 +505,8 @@ Considerações:
 		  },
 		  {
 			src: "http://transito.gtrans.com.br/cttupe/index.php/portal/getImg/192.168.11.220/",
-			alt: "Câmera em Av. Antônio de Goés - (SAD)",
-			info: "Av. Antônio de Goés - (SAD)",
+            alt: "Câmera em Av. Antônio de Goés - (SAD)", <!-- cspell:ignore Goés -->
+            info: "Av. Antônio de Goés - (SAD)", <!-- cspell:ignore Goés -->
 			mapUrl: "https://www.google.com/maps/search/?api=1&query=-8.0889793,-34.8831811"
 		  },
 		  {
@@ -621,14 +613,14 @@ Considerações:
 		  },
 		  {
 			src: "http://transito.gtrans.com.br/cttupe/index.php/portal/getImg/192.168.11.235/",
-			alt: "Câmera em Pernambuco (UR1 Ibura)",
-			info: "Av. Pernambuco (UR1 Ibura)",
+            alt: "Câmera em Pernambuco (UR1 Ibura)", <!-- cspell:ignore Ibura -->
+            info: "Av. Pernambuco (UR1 Ibura)", <!-- cspell:ignore Ibura -->
 			mapUrl: "https://www.google.com/maps/search/?api=1&query=-8.1186386,-34.9463362"
 		  },
 		  {
 			src: "http://transito.gtrans.com.br/cttupe/index.php/portal/getImg/192.168.11.205/",
-			alt: "Câmera em Recife x Rua Jean Emile Favre",
-			info: "Av. Recife x Rua Jean Emile Favre",
+            alt: "Câmera em Recife x Rua Jean Emile Favre", <!-- cspell:ignore Favre -->
+            info: "Av. Recife x Rua Jean Emile Favre", <!-- cspell:ignore Favre -->
 			mapUrl: "https://www.google.com/maps/search/?api=1&query=-8.1151579,-34.9245366"
 		  },
 		  {
@@ -779,7 +771,7 @@ Considerações:
                 countdownTime--;
                 if (countdownTime < 0) {
                     clearInterval(interval);
-                    countdownTime = 180; // Resetar a contagem
+                    countdownTime = 180; // Resetar a contagem <!-- cspell:ignore Resetar -->
                     updateCameras();
                 }
 
