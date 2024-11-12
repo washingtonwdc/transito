@@ -24,8 +24,8 @@
             width: 100%;
             position: fixed;
             top: 0;
-            left: 0; /* Adicionado */
-            right: 0; /* Adicionado */
+            left: 0;
+            right: 0;
             z-index: 1000;
         }
         main {
@@ -122,11 +122,13 @@
         footer {
             background-color: #007BFF;
             color: white;
+            padding: 20px;
             text-align: center;
-            padding: 10px;
-            position: fixed;
             width: 100%;
+            position: fixed;
             bottom: 0;
+            left: 0;
+            right: 0;
         }
     </style>
     <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY"></script>
