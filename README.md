@@ -1,44 +1,3 @@
-# Painel de Câmeras de Trânsito - Recife, Brasil
-
-Este projeto exibe um painel de câmeras de trânsito para Recife, Brasil. Inclui um layout em grade de feeds de câmeras de trânsito, um mapa do Google e um modal para visualização detalhada das imagens. A página também possui um temporizador de contagem regressiva que atualiza os feeds das câmeras a cada 3 minutos.
-
-## Componentes Principais
-
-- Estrutura HTML5 com design responsivo.
-- CSS para estilizar o layout, incluindo uma grade para feeds de câmeras, modal para visualização de imagens e temporizador de contagem regressiva.
-- JavaScript para atualizações dinâmicas de conteúdo, incluindo:
-  - Busca e exibição de feeds de câmeras.
-  - Abertura e fechamento do modal de imagem.
-  - Temporizador de contagem regressiva para atualização dos feeds das câmeras.
-
-## Recursos Externos
-
-- API do Google Maps para incorporar um mapa.
-- Windy.com para incorporar feeds de webcams.
-
-## Funções JavaScript
-
-- `updateCameras()`: Atualiza os feeds das câmeras exibidos na grade.
-- `openModal(imageSrc, altText)`: Abre o modal com a imagem selecionada.
-- `closeModal()`: Fecha o modal de imagem.
-- `startCountdown()`: Inicia o temporizador de contagem regressiva e atualiza os feeds das câmeras periodicamente.
-
-## Uso
-
-- A página inicia automaticamente a contagem regressiva e atualiza os feeds das câmeras ao carregar.
-- Os usuários podem clicar nas imagens das câmeras para visualizá-las em um modal.
-- Os usuários podem visualizar as localizações das câmeras no Google Maps clicando no botão fornecido.
-
-## Nota
-
-- Substitua 'YOUR_GOOGLE_MAPS_API_KEY' por uma chave de API válida do Google Maps.
-
-## Considerações
-
-- Este projeto foi desenvolvido por Washington Dias para ajudar na visualização das câmeras de trânsito da CTTU.
-- As imagens das câmeras nem sempre atualizam em tempo real.
-- Se você tiver sugestões ou melhorias para este projeto, sinta-se à vontade para contribuir.
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -48,7 +7,7 @@ Este projeto exibe um painel de câmeras de trânsito para Recife, Brasil. Inclu
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
+            background-color: #f4f4f4;
             margin: 0;
             padding: 0;
         }
@@ -69,27 +28,33 @@ Este projeto exibe um painel de câmeras de trânsito para Recife, Brasil. Inclu
             margin: 0;
         }
         .grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            padding: 10px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
         }
         .card {
-            background-color: white;
-            border-radius: 8px;
+            background: white;
+            border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             overflow: hidden;
-            transition: transform 0.2s;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
         .card:hover {
             transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
         }
-        .card img {
+        img {
             width: 100%;
             height: auto;
+            display: block;
         }
-        .card-info {
-            padding: 10px;
+        .info {
+            padding: 15px;
+            color: #555;
+            font-weight: bold;
         }
         .button {
             background-color: #007BFF;
@@ -105,11 +70,10 @@ Este projeto exibe um painel de câmeras de trânsito para Recife, Brasil. Inclu
             background-color: #0056b3;
         }
         .countdown {
-            font-size: 20px;
-            font-weight: bold;
-            color: #007BFF;
             text-align: center;
-            margin: 20px 0;
+            font-weight: bold;
+            padding: 15px;
+            color: #FF4500;
         }
         #map {
             height: 100px; 
@@ -118,14 +82,14 @@ Este projeto exibe um painel de câmeras de trânsito para Recife, Brasil. Inclu
         .modal {
             display: none;
             position: fixed;
-            top: 0;
+            z-index: 1000;
             left: 0;
+            top: 0;
             width: 100%;
             height: 100%;
             background-color: rgba(0, 0, 0, 0.8);
             justify-content: center;
             align-items: center;
-            animation: fadeIn 0.5s;
         }
         .modal img {
             max-width: 90%;
@@ -143,14 +107,17 @@ Este projeto exibe um painel de câmeras de trânsito para Recife, Brasil. Inclu
             from { opacity: 0; }
             to { opacity: 1; }
         }
+        .modal.show {
+            animation: fadeIn 0.5s;
+        }
         footer {
             background-color: #007BFF;
             color: white;
             text-align: center;
             padding: 10px;
             position: fixed;
-            bottom: 0;
             width: 100%;
+            bottom: 0;
         }
     </style>
     <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY"></script>
