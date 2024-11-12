@@ -1,147 +1,152 @@
--->
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Câmeras de Trânsito - Recife</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            background-color: #007BFF;
-            color: white;
-            padding: 20px;
-            text-align: center;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-        }
-        main {
-            padding: 80px 20px 20px 20px;
-        }
-        h1 {
-            margin: 0;
-        }
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); <!-- cspell:ignore minmax -->
-            gap: 20px;
-            margin-top: 20px;
-        }
-        .card {
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); <!-- cspell:ignore rgba -->
-            overflow: hidden;
-            text-align: center;
-            cursor: pointer;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        .card:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); <!-- cspell:ignore rgba -->
-        }
-        img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-        .info {
-            padding: 15px;
-            color: #555;
-            font-weight: bold;
-        }
-        .button {
-            background-color: #007BFF;
-            color: white;
-            padding: 10px 15px;
-            text-decoration: none;
-            border-radius: 5px;
-            margin: 10px 0;
-            display: inline-block;
-            transition: background-color 0.3s;
-        }
-        .button:hover {
-            background-color: #0056b3;
-        }
-        .countdown {
-            text-align: center;
-            font-weight: bold;
-            padding: 15px;
-            color: #FF4500;
-        }
-        #map {
-            height: 100px; 
-            margin-top: 20px;
-        }
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8); <!-- cspell:ignore rgba -->
-            justify-content: center;
-            align-items: center;
-        }
-        .modal img {
-            max-width: 90%;
-            max-height: 90%;
-        }
-        .close {
-            position: absolute;
-            top: 20px;
-            right: 30px;
-            color: white;
-            font-size: 30px;
-            cursor: pointer;
-        }
-        @keyframes fadeIn { <!-- cspell:ignore keyframes -->
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        .modal.show {
-            animation: fadeIn 0.5s;
-        }
-        footer {
-            background-color: #007BFF;
-            color: white;
-            text-align: center;
-            padding: 10px;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
-        }
-        .camera-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 16px;
-            padding: 16px;
-        }
+# Câmeras de Trânsito - Recife
 
-        .camera-feed {
-            background-color: #f0f0f0;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            overflow: hidden;
-        }
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+    }
+    header {
+        background-color: #007BFF;
+        color: white;
+        padding: 20px;
+        text-align: center;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+    }
+    main {
+        padding: 80px 20px 20px 20px;
+    }
+    h1 {
+        margin: 0;
+    }
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); <!-- cspell:ignore minmax -->
+        gap: 20px;
+        margin-top: 20px;
+    }
+    .card {
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); <!-- cspell:ignore rgba -->
+        overflow: hidden;
+        text-align: center;
+        cursor: pointer;
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); <!-- cspell:ignore rgba -->
+    }
+    img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+    .info {
+        padding: 15px;
+        color: #555;
+        font-weight: bold;
+    }
+    .button {
+        background-color: #007BFF;
+        color: white;
+        padding: 10px 15px;
+        text-decoration: none;
+        border-radius: 5px;
+        margin: 10px 0;
+        display: inline-block;
+        transition: background-color 0.3s;
+    }
+    .button:hover {
+        background-color: #0056b3;
+    }
+    .countdown {
+        text-align: center;
+        font-weight: bold;
+        padding: 15px;
+        color: #FF4500;
+    }
+    #map {
+        height: 100px; 
+        margin-top: 20px;
+    }
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.8); <!-- cspell:ignore rgba -->
+        justify-content: center;
+        align-items: center;
+    }
+    .modal img {
+        max-width: 90%;
+        max-height: 90%;
+    }
+    .close {
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        color: white;
+        font-size: 30px;
+        cursor: pointer;
+    }
+    @keyframes fadeIn { <!-- cspell:ignore keyframes -->
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+    .modal.show {
+        animation: fadeIn 0.5s;
+    }
+    footer {
+        background-color: #007BFF;
+        color: white;
+        text-align: center;
+        padding: 10px;
+        position: fixed;
+        width: 100%;
+        bottom: 0;
+    }
+    .camera-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 16px;
+        padding: 16px;
+    }
 
-        .camera-feed img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-    </style>
-    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY"></script>
-</head>
+    .camera-feed {
+        background-color: #f0f0f0;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        overflow: hidden;
+    }
+
+    .camera-feed img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+</style>
+
+## Header
+<div style="background-color: #007BFF; color: white; padding: 20px; text-align: center; position: fixed; width: 100%; top: 0; z-index: 1000;">
+    <h1>Câmeras de Trânsito - Recife</h1>
+</div>
+
+## Main
+<div style="padding: 80px 20px 20px 20px;">
+    <!-- Conteúdo principal aqui -->
+</div>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY"></script>
 <body>
     <header>
         <h1>Câmeras de Trânsito - Recife</h1>
