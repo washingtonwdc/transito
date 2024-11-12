@@ -1,4 +1,3 @@
-
 -->
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -465,6 +464,16 @@
                 </div>
             </div>
         </div>
+    </div>
+
+    <div class="camera-grid">
+        <div class="camera-feed">
+            <img src="camera1.jpg" alt="Camera 1">
+        </div>
+        <div class="camera-feed">
+            <img src="camera2.jpg" alt="Camera 2">
+        </div>
+        <!-- Adicione mais feeds de câmeras conforme necessário -->
     </div>
 
     <script>
