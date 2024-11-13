@@ -1,8 +1,8 @@
-<!--
+# Câmeras de Trânsito - Recife
 
-Este arquivo HTML exibe um painel de câmeras de trânsito para Recife, Brasil. Inclui um layout em grade de feeds de câmeras de trânsito, um mapa do Google e um modal para visualização detalhada das imagens. A página também possui um temporizador de contagem regressiva que atualiza os feeds das câmeras a cada 3 minutos.
+Este projeto exibe um painel de câmeras de trânsito para Recife, Brasil. Inclui um layout em grade de feeds de câmeras de trânsito, um mapa do Google e um modal para visualização detalhada das imagens. A página também possui um temporizador de contagem regressiva que atualiza os feeds das câmeras a cada 3 minutos.
 
-Componentes Principais:
+## Componentes Principais:
 - Estrutura HTML5 com design responsivo.
 - CSS para estilizar o layout, incluindo uma grade para feeds de câmeras, modal para visualização de imagens e temporizador de contagem regressiva.
 - JavaScript para atualizações dinâmicas de conteúdo, incluindo:
@@ -10,57 +10,23 @@ Componentes Principais:
     - Abertura e fechamento do modal de imagem.
     - Temporizador de contagem regressiva para atualização dos feeds das câmeras.
 
-Recursos Externos:
+## Recursos Externos:
 - API do Google Maps para incorporar um mapa.
 - Windy.com para incorporar feeds de webcams.
 
-Funções JavaScript:
-- updateCameras(): Atualiza os feeds das câmeras exibidos na grade.
-- openModal(imageSrc, altText): Abre o modal com a imagem selecionada.
-- closeModal(): Fecha o modal de imagem.
-- startCountdown(): Inicia o temporizador de contagem regressiva e atualiza os feeds das câmeras periodicamente.
-
-Uso:
-- A página inicia automaticamente a contagem regressiva e atualiza os feeds das câmeras ao carregar.
-- Os usuários podem clicar nas imagens das câmeras para visualizá-las em um modal.
-- Os usuários podem visualizar as localizações das câmeras no Google Maps clicando no botão fornecido.
-
-Nota:
-- Substitua 'YOUR_GOOGLE_MAPS_API_KEY' por uma chave de API válida do Google Maps.
-
-Considerações:
-- Este projeto foi desenvolvido por Washington Dias para ajudar na visualização das câmeras de trânsito da CTTU (Companhia de Trânsito e Transporte Urbano).
-- As imagens das câmeras nem sempre atualizam em tempo real.
-- Se você tiver sugestões ou melhorias para este projeto, sinta-se à vontade para contribuir.
--->
-
-## Funcionalidades
-
-- Busca e exibição de feeds de câmeras.
-    - Abertura e fechamento do modal de imagem.
-    - Temporizador de contagem regressiva para atualização dos feeds das câmeras.
-
-## Recursos Externos
-
-- API do Google Maps para incorporar um mapa.
-- Windy.com para incorporar feeds de webcams.
-
-## Funções JavaScript
-
+## Funções JavaScript:
 - `updateCameras()`: Atualiza os feeds das câmeras exibidos na grade.
 - `openModal(imageSrc, altText)`: Abre o modal com a imagem selecionada.
 - `closeModal()`: Fecha o modal de imagem.
 - `startCountdown()`: Inicia o temporizador de contagem regressiva e atualiza os feeds das câmeras periodicamente.
 
-## Uso
-
+## Uso:
 - A página inicia automaticamente a contagem regressiva e atualiza os feeds das câmeras ao carregar.
 - Os usuários podem clicar nas imagens das câmeras para visualizá-las em um modal.
 - Os usuários podem visualizar as localizações das câmeras no Google Maps clicando no botão fornecido.
 
-## Nota
-
-- Substitua 'YOUR_GOOGLE_MAPS_API_KEY' por uma chave de API válida do Google Maps.
+## Nota:
+- Substitua `'YOUR_GOOGLE_MAPS_API_KEY'` por uma chave de API válida do Google Maps.
 
 ## Considerações
 
@@ -465,7 +431,7 @@ Considerações:
                         Distância: 6.5 km
                     </div>
                 " data-lg-id="ed49679a-6456-4d1e-aacd-63204d7bdbf4">
-                <iframe src="https://webcams.windy.com/webcams/public/embed/player/1618431781/day?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ3ZWJjYW1faWQiOjE2MTg0MzE3ODEsInVzZXJfdHlwZSI6MSwiYXZhaWxhYmxlX3NpemVzIjoidGVhc2VyYmcsaWNvbix0aHVtYm5haWwscHJldmlldyxub3JtYWwsZnVsbCxwYW5vcmFtYSIsImlhdCI6MTcyOTkwNDU4MSwiZXhwIjoxNzI5OTkwOTgxfQ.nXh_U7atz0RkMLmIsWOEke9TZ1x01n3I8uxMfKB-t7Y&amp;autoPlay=1" width="389" height="219"></iframe>
+                <iframe src="https://webcams.windy.com/webcams/public/embed/player/1618514501/day?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ3ZWJjYW1faWQiOjE2MTg1MTQ1MDEsInVzZXJfdHlwZSI6MSwiYXZhaWxhYmxlX3NpemVzIjoidGVhc2VyYmcsaWNvbix0aHVtYm5haWwscHJldmlldyxub3JtYWwsZnVsbCxwYW5vcmFtYSIsImlhdCI6MTcyOTkwNDU4MSwiZXhwIjoxNzI5OTkwOTgxfQ.cvcWRd2_wM9t84EStSvFtlnjC3UanrV5zq4DswaqNps&autoPlay=1" width="389" height="219"></iframe>
                 </a>
                 <div class="title webcam-city" title="Recife: Av. Eng. Domingos Ferreira, 3814" data-coord="-8.12153 -34.89917">
                     Recife: Av. Eng. Domingos Ferreira, 3814
