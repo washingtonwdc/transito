@@ -90,7 +90,7 @@
         color: white; /* Cor do texto do rodapé */
         padding: 20px; /* Espaço interno do rodapé */
         text-align: center; /* Centraliza o texto */
-        width: 80%; /* Largura total */
+        width: 100%; /* Largura total */
         position: fixed; /* Fixa no fundo */
         bottom: 0; /* Alinha ao fundo */
         left: 0; /* Alinha à esquerda */
