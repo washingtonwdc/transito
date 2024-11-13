@@ -1,3 +1,23 @@
+<!--
+    Este arquivo HTML exibe uma página com câmeras de trânsito de Recife.
+    Estrutura do documento:
+    - <head>: Contém metadados e estilos.
+    - <body>: Contém o conteúdo principal da página.
+
+    Estilos:
+    - body: Define a fonte, cor de fundo, margens, preenchimento e centralização do conteúdo.
+    - header: Define o estilo do cabeçalho fixo no topo da página.
+    - main: Define o estilo da área principal com preenchimento e largura máxima.
+    - .grid: Define um layout de grade para exibir os cartões das câmeras.
+    - .card: Define o estilo dos cartões que contêm as informações das câmeras.
+    - img: Define o estilo das imagens dentro dos cartões.
+    - .info: Define o estilo das informações dentro dos cartões.
+    - .button: Define o estilo dos botões dentro dos cartões.
+    - footer: Define o estilo do rodapé fixo na parte inferior da página.
+    - .camera-info: Define o estilo das informações adicionais das câmeras.
+    - .camera-info img: Define o estilo das imagens dentro das informações adicionais.
+    - .windy-camera: Define o estilo adicional para ajustar a margem inferior.
+-->
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -81,7 +101,7 @@
             margin-top: 40px;
         }
         .camera-info img {
-            width: 100px;
+            width: 150px; /* Aumente o tamanho conforme necessário */
             height: auto;
             display: block;
             margin: 0 auto 10px;
