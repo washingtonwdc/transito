@@ -51,7 +51,7 @@
     main {
         padding: 80px 20px 20px 20px; /* Espaço interno do conteúdo */
         width: 100%; /* Largura total */
-        max-width: 1200px; /* Largura máxima */
+        max-width: 1000px; /* Largura máxima */
     }
     .grid {
         display: grid; /* Layout de grade */
