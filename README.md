@@ -31,7 +31,7 @@
         main {
             padding: 80px 20px 20px 20px;
             width: 100%;
-            max-width: 1200px;
+            max-width: 1000x;
         }
         .grid {
             display: grid;
@@ -84,7 +84,7 @@
             width: 100px;
             height: auto;
             display: block;
-            margin: 0 auto 10px;
+            margin: 0 auto 0px;
         }
     </style>
     <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY"></script>
