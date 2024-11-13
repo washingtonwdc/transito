@@ -51,7 +51,7 @@
     main {
         padding: 80px 20px 20px 20px; /* Espaço interno do conteúdo */
         width: 100%; /* Largura total */
-        max-width: 1000px; /* Largura máxima */
+        max-width: 1200px; /* Largura máxima */
     }
     .grid {
         display: grid; /* Layout de grade */
@@ -90,7 +90,7 @@
         color: white; /* Cor do texto do rodapé */
         padding: 20px; /* Espaço interno do rodapé */
         text-align: center; /* Centraliza o texto */
-        width: 90%; /* Largura total */
+        width: 100%; /* Largura total */
         position: fixed; /* Fixa no fundo */
         bottom: 0; /* Alinha ao fundo */
         left: 0; /* Alinha à esquerda */
@@ -101,13 +101,29 @@
         margin-top: 40px; /* Espaço acima */
     }
     .camera-info img {
-        width: 200px; /* Tamanho das imagens */
+        width: 150px; /* Tamanho das imagens */
         height: auto; /* Altura automática */
         display: block; /* Exibe como bloco */
         margin: 0 auto 10px; /* Centraliza e adiciona espaço abaixo */
     }
     .windy-camera {
         margin-bottom: 10px; /* Espaço abaixo */
+    }
+    .fullscreen-modal {
+        display: none; /* Esconde o modal por padrão */
+        position: fixed; /* Fixa o modal na tela */
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.8); /* Fundo escuro */
+        justify-content: center;
+        align-items: center;
+        z-index: 1001; /* Acima do cabeçalho */
+    }
+    .fullscreen-modal img {
+        max-width: 90%;
+        max-height: 90%;
     }
 </style>
     <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY"></script>
@@ -488,6 +504,10 @@
                 </div>
             </div>
         </div>
+    </div>
+
+    <div class="fullscreen-modal" id="fullscreen-modal">
+        <img id="fullscreen-image" src="" alt="Imagem em tela cheia">
     </div>
 
     <script>
