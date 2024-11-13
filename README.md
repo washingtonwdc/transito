@@ -106,17 +106,53 @@
                 <div class="info">Localização: Avenida Boa Viagem</div>
                 <a href="#" class="button">Ver Detalhes</a>
             </div>
-            <div class="card">
-                <img src="camera2.jpg" alt="Câmera 2">
-                <div class="info">Localização: Rua da Aurora</div>
-                <a href="#" class="button">Ver Detalhes</a>
+            <!-- Adicione mais cards aqui -->
+        </div>
+        <div class="camera-info">
+            <div>
+                <img src="camera1.jpg" alt="Recife: Avenida Governador Agamenon Magalhães - Soledade">
+                <p>Recife: Avenida Governador Agamenon Magalhães - Soledade<br>há 39 minutos<br>Distância: 1.6 km</p>
             </div>
-            <div class="card">
-                <img src="camera3.jpg" alt="Câmera 3">
-                <div class="info">Localização: Avenida Agamenon Magalhães</div>
-                <a href="#" class="button">Ver Detalhes</a>
+            <div>
+                <img src="camera2.jpg" alt="Recife: Paissandu - Avenida Governador Agamenon Magalhães">
+                <p>Recife: Paissandu - Avenida Governador Agamenon Magalhães<br>há 1 hora<br>Distância: 2 km</p>
             </div>
-            <!-- Adicione mais câmeras conforme necessário -->
+            <div>
+                <img src="camera3.jpg" alt="Recife: Paissandu - Avenida Governador Agamenon Magalhães">
+                <p>Recife: Paissandu - Avenida Governador Agamenon Magalhães<br>há 2 horas<br>Distância: 2 km</p>
+            </div>
+            <div>
+                <img src="camera4.jpg" alt="Recife: Praça do Derby">
+                <p>Recife: Praça do Derby<br>há 59 minutos<br>Distância: 2.1 km</p>
+            </div>
+            <div>
+                <img src="camera5.jpg" alt="Recife: Clube Náutico Capibaribe">
+                <p>Recife: Clube Náutico Capibaribe<br>há 26 minutos<br>Distância: 2.2 km</p>
+            </div>
+            <div>
+                <img src="camera6.jpg" alt="Recife: Madalena">
+                <p>Recife: Madalena<br>há 1 hora<br>Distância: 3 km</p>
+            </div>
+            <div>
+                <img src="camera7.jpg" alt="Recife: Igreja do Pina">
+                <p>Recife: Igreja do Pina<br>há 1 hora<br>Distância: 3.2 km</p>
+            </div>
+            <div>
+                <img src="camera8.jpg" alt="Recife: Peace Community Center - COMPAZ- Alto Santa Terezinha">
+                <p>Recife: Peace Community Center - COMPAZ- Alto Santa Terezinha<br>há 45 minutos<br>Distância: 4.7 km</p>
+            </div>
+            <div class="windy-camera">
+                <img src="camera9.jpg" alt="Recife: Av. Eng. Domingos Ferreira, 1818">
+                <p>Recife: Av. Eng. Domingos Ferreira, 1818<br>há 1 hora<br>Distância: 4.8 km</p>
+            </div>
+            <div class="windy-camera">
+                <img src="camera10.jpg" alt="Recife: Av. Eng. Domingos Ferreira, 3814">
+                <p>Recife: Av. Eng. Domingos Ferreira, 3814<br>há 7 minutos<br>Distância: 6.5 km</p>
+            </div>
+            <div class="windy-camera">
+                <img src="camera11.jpg" alt="Recife: Avenida Desembargador José Neves">
+                <p>Recife: Avenida Desembargador José Neves</p>
+            </div>
         </div>
     </main>
     <footer>
