@@ -816,5 +816,25 @@
 
         window.onload = startCountdown; // Iniciar contagem ao carregar a página
     </script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const images = document.querySelectorAll('img[src^="http://transito.gtrans.com.br/cttupe/index.php"]');
+        images.forEach(img => {
+            img.style.width = '200px'; // Aumente o tamanho conforme necessário
+            img.style.cursor = 'pointer'; // Adiciona cursor de ponteiro para indicar interatividade
+            img.addEventListener('click', function() {
+                const modal = document.getElementById('fullscreen-modal');
+                const fullscreenImage = document.getElementById('fullscreen-image');
+                fullscreenImage.src = this.src;
+                modal.style.display = 'flex';
+            });
+        });
+
+        const modal = document.getElementById('fullscreen-modal');
+        modal.addEventListener('click', function() {
+            modal.style.display = 'none';
+        });
+    });
+</script>
 </body>
 </html>
