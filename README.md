@@ -24,92 +24,92 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Câmeras de Trânsito - Recife</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh; /* Define a altura mínima da tela */
-        }
-        header {
-            background-color: #007BFF; /* Cor de fundo do cabeçalho */
-            color: white; /* Cor do texto do cabeçalho */
-            padding: 20px; /* Espaçamento interno do cabeçalho */
-            text-align: center; /* Centraliza o texto do cabeçalho */
-            width: 100%; /* Largura total do cabeçalho */
-            position: fixed; /* Fixa o cabeçalho no topo da página */
-            top: 0; /* Alinha o cabeçalho ao topo */
-            left: 0; /* Alinha o cabeçalho à esquerda */
-            right: 0; /* Alinha o cabeçalho à direita */
-            z-index: 1000; /* Garante que o cabeçalho fique acima de outros elementos */
-        }
-        main {
-            padding: 80px 20px 20px 20px; /* Espaçamento interno do conteúdo principal */
-            width: 100%; /* Largura total do conteúdo principal */
-            max-width: 1200px; /* Largura máxima do conteúdo principal */
-        }
-        .grid {
-            display: grid; /* Define um layout de grade */
-            grid-template-columns: repeat(4, 1fr); /* Define 4 colunas de largura igual */
-            gap: 20px; /* Espaçamento entre os itens da grade */
-            width: 100%; /* Largura total da grade */
-        }
-        .card {
-            background-color: white; /* Cor de fundo dos cartões */
-            border: 1px solid #ddd; /* Borda dos cartões */
-            border-radius: 8px; /* Arredondamento dos cantos dos cartões */
-            overflow: hidden; /* Oculta o conteúdo que ultrapassa os limites dos cartões */
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra dos cartões */
-        }
-        img {
-            width: 100%; /* Largura total das imagens */
-            height: auto; /* Altura automática das imagens */
-            display: block; /* Exibe as imagens como blocos */
-        }
-        .info {
-            padding: 15px; /* Espaçamento interno das informações */
-            color: #555; /* Cor do texto das informações */
-            font-weight: bold; /* Negrito no texto das informações */
-        }
-        .button {
-            display: block; /* Exibe os botões como blocos */
-            background-color: #007BFF; /* Cor de fundo dos botões */
-            color: white; /* Cor do texto dos botões */
-            text-align: center; /* Centraliza o texto dos botões */
-            padding: 10px; /* Espaçamento interno dos botões */
-            text-decoration: none; /* Remove a sublinha dos links */
-            border-radius: 0 0 8px 8px; /* Arredondamento dos cantos inferiores dos botões */
-        }
-        footer {
-            background-color: #007BFF; /* Cor de fundo do rodapé */
-            color: white; /* Cor do texto do rodapé */
-            padding: 20px; /* Espaçamento interno do rodapé */
-            text-align: center; /* Centraliza o texto do rodapé */
-            width: 100%; /* Largura total do rodapé */
-            position: fixed; /* Fixa o rodapé na parte inferior da página */
-            bottom: 0; /* Alinha o rodapé ao fundo */
-            left: 0; /* Alinha o rodapé à esquerda */
-            right: 0; /* Alinha o rodapé à direita */
-        }
-        .camera-info {
-            text-align: center; /* Centraliza o texto das informações adicionais das câmeras */
-            margin-top: 40px; /* Espaçamento superior das informações adicionais das câmeras */
-        }
-        .camera-info img {
-            width: 150px; /* Aumente o tamanho conforme necessário */
-            height: auto; /* Altura automática das imagens */
-            display: block; /* Exibe as imagens como blocos */
-            margin: 0 auto 10px; /* Centraliza as imagens e adiciona espaçamento inferior */
-        }
-        .windy-camera {
-            margin-bottom: 10px; /* Ajuste o valor conforme necessário */
-        }
-    </style>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh; /* Altura mínima da tela */
+    }
+    header {
+        background-color: #007BFF; /* Cor de fundo do cabeçalho */
+        color: white; /* Cor do texto do cabeçalho */
+        padding: 20px; /* Espaço interno do cabeçalho */
+        text-align: center; /* Centraliza o texto */
+        width: 100%; /* Largura total */
+        position: fixed; /* Fixa no topo */
+        top: 0; /* Alinha ao topo */
+        left: 0; /* Alinha à esquerda */
+        right: 0; /* Alinha à direita */
+        z-index: 1000; /* Fica acima de outros elementos */
+    }
+    main {
+        padding: 80px 20px 20px 20px; /* Espaço interno do conteúdo */
+        width: 100%; /* Largura total */
+        max-width: 1200px; /* Largura máxima */
+    }
+    .grid {
+        display: grid; /* Layout de grade */
+        grid-template-columns: repeat(4, 1fr); /* 4 colunas iguais */
+        gap: 20px; /* Espaço entre itens */
+        width: 100%; /* Largura total */
+    }
+    .card {
+        background-color: white; /* Cor de fundo dos cartões */
+        border: 1px solid #ddd; /* Borda dos cartões */
+        border-radius: 8px; /* Cantos arredondados */
+        overflow: hidden; /* Esconde conteúdo que passa dos limites */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra dos cartões */
+    }
+    img {
+        width: 100%; /* Largura total das imagens */
+        height: auto; /* Altura automática */
+        display: block; /* Exibe como bloco */
+    }
+    .info {
+        padding: 15px; /* Espaço interno das informações */
+        color: #555; /* Cor do texto */
+        font-weight: bold; /* Texto em negrito */
+    }
+    .button {
+        display: block; /* Exibe como bloco */
+        background-color: #007BFF; /* Cor de fundo dos botões */
+        color: white; /* Cor do texto dos botões */
+        text-align: center; /* Centraliza o texto */
+        padding: 10px; /* Espaço interno */
+        text-decoration: none; /* Remove sublinhado */
+        border-radius: 0 0 8px 8px; /* Cantos arredondados embaixo */
+    }
+    footer {
+        background-color: #007BFF; /* Cor de fundo do rodapé */
+        color: white; /* Cor do texto do rodapé */
+        padding: 20px; /* Espaço interno do rodapé */
+        text-align: center; /* Centraliza o texto */
+        width: 90%; /* Largura total */
+        position: fixed; /* Fixa no fundo */
+        bottom: 0; /* Alinha ao fundo */
+        left: 0; /* Alinha à esquerda */
+        right: 0; /* Alinha à direita */
+    }
+    .camera-info {
+        text-align: center; /* Centraliza o texto */
+        margin-top: 40px; /* Espaço acima */
+    }
+    .camera-info img {
+        width: 150px; /* Tamanho das imagens */
+        height: auto; /* Altura automática */
+        display: block; /* Exibe como bloco */
+        margin: 0 auto 10px; /* Centraliza e adiciona espaço abaixo */
+    }
+    .windy-camera {
+        margin-bottom: 10px; /* Espaço abaixo */
+    }
+</style>
     <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY"></script>
 </head>
 <body>
