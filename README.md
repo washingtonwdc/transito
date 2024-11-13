@@ -34,77 +34,77 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            min-height: 100vh;
+            min-height: 100vh; /* Define a altura mínima da tela */
         }
         header {
-            background-color: #007BFF;
-            color: white;
-            padding: 20px;
-            text-align: center;
-            width: 100%;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
+            background-color: #007BFF; /* Cor de fundo do cabeçalho */
+            color: white; /* Cor do texto do cabeçalho */
+            padding: 20px; /* Espaçamento interno do cabeçalho */
+            text-align: center; /* Centraliza o texto do cabeçalho */
+            width: 100%; /* Largura total do cabeçalho */
+            position: fixed; /* Fixa o cabeçalho no topo da página */
+            top: 0; /* Alinha o cabeçalho ao topo */
+            left: 0; /* Alinha o cabeçalho à esquerda */
+            right: 0; /* Alinha o cabeçalho à direita */
+            z-index: 1000; /* Garante que o cabeçalho fique acima de outros elementos */
         }
         main {
-            padding: 80px 20px 20px 20px;
-            width: 100%;
-            max-width: 1200px;
+            padding: 80px 20px 20px 20px; /* Espaçamento interno do conteúdo principal */
+            width: 100%; /* Largura total do conteúdo principal */
+            max-width: 1200px; /* Largura máxima do conteúdo principal */
         }
         .grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-            width: 100%;
+            display: grid; /* Define um layout de grade */
+            grid-template-columns: repeat(4, 1fr); /* Define 4 colunas de largura igual */
+            gap: 20px; /* Espaçamento entre os itens da grade */
+            width: 100%; /* Largura total da grade */
         }
         .card {
-            background-color: white;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            background-color: white; /* Cor de fundo dos cartões */
+            border: 1px solid #ddd; /* Borda dos cartões */
+            border-radius: 8px; /* Arredondamento dos cantos dos cartões */
+            overflow: hidden; /* Oculta o conteúdo que ultrapassa os limites dos cartões */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra dos cartões */
         }
         img {
-            width: 100%;
-            height: auto;
-            display: block;
+            width: 100%; /* Largura total das imagens */
+            height: auto; /* Altura automática das imagens */
+            display: block; /* Exibe as imagens como blocos */
         }
         .info {
-            padding: 15px;
-            color: #555;
-            font-weight: bold;
+            padding: 15px; /* Espaçamento interno das informações */
+            color: #555; /* Cor do texto das informações */
+            font-weight: bold; /* Negrito no texto das informações */
         }
         .button {
-            display: block;
-            background-color: #007BFF;
-            color: white;
-            text-align: center;
-            padding: 10px;
-            text-decoration: none;
-            border-radius: 0 0 8px 8px;
+            display: block; /* Exibe os botões como blocos */
+            background-color: #007BFF; /* Cor de fundo dos botões */
+            color: white; /* Cor do texto dos botões */
+            text-align: center; /* Centraliza o texto dos botões */
+            padding: 10px; /* Espaçamento interno dos botões */
+            text-decoration: none; /* Remove a sublinha dos links */
+            border-radius: 0 0 8px 8px; /* Arredondamento dos cantos inferiores dos botões */
         }
         footer {
-            background-color: #007BFF;
-            color: white;
-            padding: 20px;
-            text-align: center;
-            width: 100%;
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
+            background-color: #007BFF; /* Cor de fundo do rodapé */
+            color: white; /* Cor do texto do rodapé */
+            padding: 20px; /* Espaçamento interno do rodapé */
+            text-align: center; /* Centraliza o texto do rodapé */
+            width: 100%; /* Largura total do rodapé */
+            position: fixed; /* Fixa o rodapé na parte inferior da página */
+            bottom: 0; /* Alinha o rodapé ao fundo */
+            left: 0; /* Alinha o rodapé à esquerda */
+            right: 0; /* Alinha o rodapé à direita */
         }
         .camera-info {
-            text-align: center;
-            margin-top: 40px;
+            text-align: center; /* Centraliza o texto das informações adicionais das câmeras */
+            margin-top: 40px; /* Espaçamento superior das informações adicionais das câmeras */
         }
         .camera-info img {
             width: 150px; /* Aumente o tamanho conforme necessário */
-            height: auto;
-            display: block;
-            margin: 0 auto 10px;
+            height: auto; /* Altura automática das imagens */
+            display: block; /* Exibe as imagens como blocos */
+            margin: 0 auto 10px; /* Centraliza as imagens e adiciona espaçamento inferior */
         }
         .windy-camera {
             margin-bottom: 10px; /* Ajuste o valor conforme necessário */
