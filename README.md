@@ -51,7 +51,7 @@
     main {
         padding: 80px 20px 20px 20px; /* Espaço interno do conteúdo */
         width: 100%; /* Largura total */
-        max-width: 1000px; /* Largura máxima */
+        max-width: 1200px; /* Largura máxima */
     }
     .grid {
         display: grid; /* Layout de grade */
@@ -101,7 +101,7 @@
         margin-top: 40px; /* Espaço acima */
     }
     .camera-info img {
-        width: 150px; /* Tamanho das imagens */
+        width: 200px; /* Tamanho das imagens */
         height: auto; /* Altura automática */
         display: block; /* Exibe como bloco */
         margin: 0 auto 10px; /* Centraliza e adiciona espaço abaixo */
